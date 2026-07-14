@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Waita — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101B2D;
+  --paper:#F7F5EF;
+  --paper-dim:#EFEBE0;
+  --gold:#C89B3C;
+  --teal:#1F7A5C;
+  --text-dark:#17191C;
+  --text-light:#F2EFE6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--text-dark);font-family:'Inter',sans-serif;line-height:1.6;}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;}
+a{color:inherit;}
+
+/* NAV */
+header{background:var(--ink);padding:18px 32px;}
+nav{display:flex;justify-content:space-between;align-items:center;max-width:1120px;margin:0 auto;}
+.logo{color:var(--gold);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;}
+.navlinks{display:flex;}
+.navlinks a{color:var(--text-light);margin-left:28px;text-decoration:none;font-size:14px;font-weight:500;}
+.navlinks a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{display:flex;align-items:center;gap:48px;padding:64px 32px;max-width:1120px;margin:0 auto;}
+.hero-text{flex:1;}
+.eyebrow{color:var(--teal);font-weight:600;font-size:14px;margin-bottom:12px;}
+.hero h1{font-size:34px;margin-bottom:16px;}
+.lead{font-size:17px;color:#444;margin-bottom:24px;}
+.cta-row{display:flex;flex-wrap:wrap;}
+.btn{padding:12px 20px;font-weight:600;font-size:14px;text-decoration:none;border-radius:4px;margin-right:14px;margin-bottom:10px;display:inline-block;}
+.btn-primary{background:var(--gold);color:var(--ink);}
+.btn-outline{border:1px solid var(--ink);color:var(--ink);}
+.hero-image{flex:1;}
+.hero-image img{width:100%;max-width:320px;border-radius:6px;display:block;}
+
+/* ABOUT */
+.about{display:flex;gap:64px;padding:80px 32px;max-width:1120px;margin:0 auto;flex-wrap:wrap;}
+.about-text{flex:0 0 260px;}
+.section-label{color:var(--teal);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;}
+.about h2{font-size:26px;line-height:1.2;}
+.about-body{flex:1;min-width:280px;}
+.about-body p{font-size:16px;color:#444;max-width:60ch;margin-bottom:32px;}
+.facts{border-top:1px solid #ddd;}
+.fact{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #ddd;font-size:14px;}
+.fact-k{color:#777;}
+.fact-v{font-weight:600;}
+
+/* SERVICES */
+.services{background:var(--paper-dim);padding:80px 32px;}
+.services-inner{max-width:1120px;margin:0 auto;}
+.services h2{font-size:26px;margin-bottom:44px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ddd;border:1px solid #ddd;}
+.service-card{background:var(--paper-dim);padding:28px 22px;}
+.service-card .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);display:block;margin-bottom:16px;}
+.service-card h3{font-size:17px;margin-bottom:8px;}
+.service-card p{font-size:14px;color:#555;}
+
+/* PROJECTS */
+.projects{padding:80px 32px;max-width:1120px;margin:0 auto;}
+.projects h2{font-size:26px;margin-bottom:44px;}
+.project{display:flex;gap:40px;padding:36px 0;border-top:1px solid #ddd;flex-wrap:wrap;}
+.project:last-child{border-bottom:1px solid #ddd;}
+.project-meta{flex:0 0 220px;}
+.project-meta .label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);margin-bottom:8px;display:block;}
+.project-meta h3{font-size:22px;margin-bottom:10px;}
+.status{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 8px;border:1px solid #ccc;color:#666;border-radius:3px;}
+.project-body{flex:1;min-width:260px;}
+.project-body p{color:#444;font-size:15px;margin-bottom:14px;max-width:64ch;}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+.stack span{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:5px 9px;background:var(--ink);color:var(--text-light);border-radius:3px;}
+.project-link{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--teal);border-bottom:1px solid var(--teal);}
+
+/* SKILLS */
+.skills{background:var(--ink);color:var(--text-light);padding:80px 32px;}
+.skills-inner{max-width:1120px;margin:0 auto;}
+.skills .section-label{color:var(--gold);}
+.skills h2{color:var(--text-light);font-size:26px;margin-bottom:40px;}
+.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+.skill-group h4{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;}
+.skill-group ul{list-style:none;}
+.skill-group li{padding:8px 0;border-top:1px solid rgba(242,239,230,0.16);font-size:15px;color:#DDE1EA;}
+
+/* CONTACT */
+.contact{padding:80px 32px;max-width:1120px;margin:0 auto;}
+.contact-inner{display:flex;gap:56px;flex-wrap:wrap;}
+.contact-left{flex:1;min-width:260px;}
+.contact h2{font-size:30px;margin-bottom:16px;max-width:16ch;}
+.contact p.lead2{color:#555;font-size:16px;max-width:44ch;}
+.contact-card{flex:0 0 340px;border:1px solid #ddd;padding:28px;background:var(--paper-dim);}
+.contact-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #ddd;}
+.contact-row:last-child{border-bottom:none;}
+.contact-row .k{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#777;text-transform:uppercase;letter-spacing:0.06em;}
+.contact-row .v{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;text-decoration:none;color:var(--text-dark);}
+.contact-row .v:hover{color:var(--teal);}
+
+/* FOOTER */
+footer{background:var(--ink);color:#8B93A6;padding:28px 32px;}
+.footer-inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;}
+footer a:hover{color:var(--gold);}
+
+@media (max-width:900px){
+  .grid-4{grid-template-columns:repeat(2,1fr);}
+  .skill-groups{grid-template-columns:1fr;}
+}
+@media (max-width:700px){
+  .hero{flex-direction:column;}
+  .grid-4{grid-template-columns:1fr;}
+  .project{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <span class="logo">BW</span>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">Nairobi, Kenya</p>
+    <h1>Finance &amp; Economics student. Product designer. Solo builder. Web developer.</h1>
+    <p class="lead">Currently building CreditNova — a fair way to access credit.</p>
+    <div class="cta-row">
+      <a href="mailto:brianwaita88@gmail.com" class="btn btn-primary">Email me</a>
+      <a href="tel:+254798686645" class="btn btn-outline">Call: 0798 686 645</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="images/brian-portrait.webp" alt="Portrait of Brian Waita">
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-text">
+    <p class="section-label">About</p>
+    <h2>Design instincts, engineering follow-through.</h2>
+  </div>
+  <div class="about-body">
+    <p>I'm Brian, a Finance and Economics student at Kenyatta University's Mama Ngina campus. Alongside my studies, I work as a product designer, solo builder, and web developer, with a growing interest in AI tools. I'm currently building CreditNova — a fair way to access credit.</p>
+    <div class="facts">
+      <div class="fact"><span class="fact-k">Based in</span><span class="fact-v">Nairobi, Kenya</span></div>
+      <div class="fact"><span class="fact-k">Studying</span><span class="fact-v">Finance &amp; Economics, KU</span></div>
+      <div class="fact"><span class="fact-k">Currently building</span><span class="fact-v">CreditNova</span></div>
+      <div class="fact"><span class="fact-k">Open to</span><span class="fact-v">Freelance &amp; collaboration</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <p class="section-label">What I do</p>
+    <h2>Four disciplines, one person.</h2>
+    <div class="grid-4">
+      <div class="service-card">
+        <span class="num">01</span>
+        <h3>Software Engineering</h3>
+        <p>Backend systems in Django/Python — architecture-first, built to actually hold up.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">02</span>
+        <h3>Product Design</h3>
+        <p>Design systems, UI/UX, and Figma workflows shaped by 3 months of design practice.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">03</span>
+        <h3>Web Development</h3>
+        <p>Sites built and deployed hands-on — HTML/CSS, Git, GitHub Pages, Docker.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">04</span>
+        <h3>AI Tools</h3>
+        <p>Actively exploring how AI tooling fits into real product and engineering workflows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="work">
+  <p class="section-label">Selected work</p>
+  <h2>What I've built.</h2>
+
+  <div class="project">
+    <div class="project-meta">
+      <span class="label">Flagship project</span>
+      <h3>CreditNova</h3>
+      <span class="status">In progress</span>
+    </div>
+    <div class="project-body">
+      <p>An ethical credit scoring and lending platform for the Kenyan and East African market. Built solo, from planning through architecture: full product documentation, a design system, and eight scaffolded backend modules covering authentication, KYC, consent, scoring, and audit.</p>
+      <div class="stack"><span>Django</span><span>Python</span><span>React Native</span><span>PostgreSQL</span><span>Figma</span></div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-meta">
+      <span class="label">Earlier prototype</span>
+      <h3>EquiFlow</h3>
+      <span class="status">Live</span>
+    </div>
+    <div class="project-body">
+      <p>An AI-driven credit scoring web app — the earlier prototype that led into CreditNova. Published and live on GitHub Pages.</p>
+      <div class="stack"><span>HTML/CSS</span><span>GitHub Pages</span></div>
+      <a class="project-link" href="https://brianwaita88-sys.github.io/digitalchances" target="_blank" rel="noopener">View live →</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-meta">
+      <span class="label">This site</span>
+      <h3>Portfolio</h3>
+      <span class="status">Live</span>
+    </div>
+    <div class="project-body">
+      <p>Designed and built from scratch, deployed through GitHub Pages with a Docker-based workflow.</p>
+      <div class="stack"><span>HTML/CSS</span><span>Docker</span><span>GitHub Pages</span></div>
+      <a class="project-link" href="https://github.com/brianwaita88-sys" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="skills-inner">
+    <p class="section-label">Skills</p>
+    <h2>Tools of the trade.</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h4>Engineering</h4>
+        <ul>
+          <li>Python / Django</li>
+          <li>React Native</li>
+          <li>Git &amp; GitHub</li>
+          <li>Docker</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Design</h4>
+        <ul>
+          <li>Product &amp; UI/UX Design</li>
+          <li>Design Systems</li>
+          <li>Figma</li>
+          <li>Brand &amp; Visual Identity</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Domain &amp; Emerging</h4>
+        <ul>
+          <li>Fintech &amp; Financial Inclusion</li>
+          <li>KYC / AML Awareness</li>
+          <li>AI Tools</li>
+          <li>Finance &amp; Economics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p class="section-label">Contact</p>
+      <h2>Let's build something.</h2>
+      <p class="lead2">Open to freelance work, collaboration, and conversations about fintech, design, or engineering.</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-row"><span class="k">Phone</span><a class="v" href="tel:+254798686645">0798 686 645</a></div>
+      <div class="contact-row"><span class="k">Email</span><a class="v" href="mailto:brianwaita88@gmail.com">brianwaita88@gmail.com</a></div>
+      <div class="contact-row"><span class="k">GitHub</span><a class="v" href="https://github.com/brianwaita88-sys" target="_blank" rel="noopener">brianwaita88-sys</a></div>
+      <div class="contact-row"><span class="k">Location</span><span class="v">Nairobi, Kenya</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Brian Waita</span>
+    <span>Built by Brian — <a href="https://github.com/brianwaita88-sys" target="_blank" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

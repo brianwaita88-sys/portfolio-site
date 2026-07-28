@@ -24,7 +24,8 @@ a{color:inherit;}
 /* NAV */
 header{background:var(--secondary);padding:18px 32px;border-bottom:1px solid var(--border);}
 nav{display:flex;justify-content:space-between;align-items:center;max-width:1120px;margin:0 auto;}
-.logo{color:var(--gold);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;}
+.logo{color:var(--gold);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;display:flex;align-items:center;}
+.logo-name{margin-left:10px;vertical-align:middle;}
 .navlinks{display:flex;}
 .navlinks a{color:var(--text);margin-left:28px;text-decoration:none;font-size:14px;font-weight:500;}
 .navlinks a:hover{color:var(--gold);}
@@ -33,6 +34,9 @@ nav{display:flex;justify-content:space-between;align-items:center;max-width:1120
 .hero{display:flex;align-items:center;gap:48px;padding:64px 32px;max-width:1120px;margin:0 auto;}
 .hero-text{flex:1;}
 .eyebrow{color:var(--gold);font-weight:600;font-size:14px;margin-bottom:12px;}
+.typewriter{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--gold);margin-bottom:16px;min-height:22px;}
+.cursor{display:inline-block;width:2px;height:16px;background:var(--gold);margin-left:3px;vertical-align:middle;animation:blink 0.8s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
 .hero h1{font-size:34px;margin-bottom:16px;color:var(--text);}
 .lead{font-size:17px;color:var(--text-muted);margin-bottom:24px;}
 .cta-row{display:flex;flex-wrap:wrap;}
@@ -115,6 +119,7 @@ footer a:hover{color:var(--gold);}
   .hero{flex-direction:column;}
   .grid-4{grid-template-columns:1fr;}
   .project{flex-direction:column;}
+  .logo-name{display:none;}
 }
 </style>
 </head>
@@ -122,10 +127,10 @@ footer a:hover{color:var(--gold);}
 
 <header>
   <nav>
-  <span class="logo">
-  <img src="images/logo.png" alt="Brian Waita" style="height: 48px; vertical-align: middle;">
-  <span style="margin-left: 10px; vertical-align: middle;">Brian Waita Mutuku</span>
-</span>
+    <span class="logo">
+      <img src="images/logo.png" alt="Brian Waita" style="height: 48px; vertical-align: middle;">
+      <span class="logo-name">Brian Waita Mutuku</span>
+    </span>
     <div class="navlinks">
       <a href="#about">About</a>
       <a href="#work">Work</a>
@@ -138,6 +143,7 @@ footer a:hover{color:var(--gold);}
 <section class="hero">
   <div class="hero-text">
     <p class="eyebrow">Nairobi, Kenya</p>
+    <p class="typewriter"><span id="typewriter-text"></span><span class="cursor"></span></p>
     <h1>Finance &amp; Economics student. Product designer. Solo builder. Web developer.</h1>
     <p class="lead">Currently building CreditNova — a fair way to access credit.</p>
     <div class="cta-row">
@@ -295,6 +301,34 @@ footer a:hover{color:var(--gold);}
     <span>Built by Brian — <a href="https://github.com/brianwaita88-sys" target="_blank" rel="noopener">GitHub</a></span>
   </div>
 </footer>
+
+<script>
+  const phrases = ["I'm a Solo builder.", "I'm a Web developer.", "I'm a Product designer.", "I'm a Finance & Economics student."];
+  let phraseIndex = 0, charIndex = 0, deleting = false;
+  const typeEl = document.getElementById('typewriter-text');
+
+  function type(){
+    const current = phrases[phraseIndex];
+    if(!deleting){
+      typeEl.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+      if(charIndex === current.length){
+        deleting = true;
+        setTimeout(type, 1400);
+        return;
+      }
+    } else {
+      typeEl.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+      if(charIndex === 0){
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, deleting ? 35 : 70);
+  }
+  type();
+</script>
 
 </body>
 </html>
